@@ -13,7 +13,12 @@ We're going to start by following the steps listed on the official ReactJS docum
 ```
 npx create-react-app achievers-api-tutorial
 cd achievers-api-tutorial
-npm start
 ```
 
+and then `npm start` or `yarn start`. Going forward we will refer to doing this as executing `yarn start` but the two are interchangable.
+
 Going to your http://localhost:3000/ on your local machine should show you something like the following:
+
+![step1a](https://raw.github.corp.achievers.com/michael-tozzo/achievers-api-tutorial/master/tutorial/screenshots/step1a.png)
+
+Now on to step 2.
