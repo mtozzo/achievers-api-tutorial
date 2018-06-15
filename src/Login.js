@@ -2,10 +2,27 @@ import React, { Component } from 'react';
 import { Header, Button, Segment } from 'semantic-ui-react'
 import './Login.css'
 import buildUrl from 'build-url';
+import queryString from 'query-string';
+import cookie from 'react-cookies';
 
 class Login extends Component {
   constructor(props) {
     super(props);
+
+    const {
+      access_token: accessToken, expires_in: expiresIn, state
+    } = queryString.parse(window.location.hash.substring(1));
+
+    console.log(window.location.hash);
+    console.log({accessToken, expiresIn, state});
+
+    if ((accessToken && expiresIn && state) && state === cookie.load('state')) {
+      cookie.save('accessToken', accessToken, { path: '/' });
+      cookie.save('expiresIn', expiresIn, { path: '/' });
+
+      window.opener.location.reload();
+      window.close();
+    }
 
     this.onLoginClick = this.onLoginClick.bind(this);
   }
@@ -26,6 +43,8 @@ class Login extends Component {
       path: '/oauth/v2/openIDConnectClient/authorize',
       queryParams: authParams,
     });
+    
+    cookie.save('state', authParams.state, { path: '/' });
 
     window.open(loginUrl, 'Login to Achievers', 'width=900,height=700');
   }
