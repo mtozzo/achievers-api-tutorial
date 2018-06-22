@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Login from './Login';
 import cookie from 'react-cookies';
+import 'semantic-ui-css/semantic.min.css';
 import { Header, Button, Segment } from 'semantic-ui-react'
 
 class App extends Component {

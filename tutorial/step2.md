@@ -10,6 +10,7 @@ To install these things we're going to need to press `CTRL+C` to shut down the s
 
 ```
 yarn add semantic-ui-react
+yarn add semantic-ui-css
 yarn add react-cookies
 yarn add build-url
 yarn add query-string
