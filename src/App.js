@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './Login';
+import Main from './Main';
 import cookie from 'react-cookies';
 import 'semantic-ui-css/semantic.min.css';
 import { Header, Button, Segment } from 'semantic-ui-react'
@@ -20,7 +21,7 @@ class App extends Component {
     console.log(this.state);
 
     if (accessToken) {
-      return <div>{accessToken}</div>;
+      return <Main accessToken={accessToken} />;
     } 
     return <Login />;
   }

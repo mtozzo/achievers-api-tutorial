@@ -57,6 +57,6 @@ And update the `render` method like so:
    }
 ```
 
-Now when your app reloads you should see your access token displayed on the page. With an actual token we can start making some API requests!
+Now when your app reloads you should see your access token displayed on the page. With an actual token we can start making some API requests! First though, we're going to take a quick detour and create the compents that will be displayed when we're logged in.
 
 Now on to step 5.
