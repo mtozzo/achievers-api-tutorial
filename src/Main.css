@@ -1,3 +1,7 @@
 .anywhereRecognition {
   padding: 10px;
 }
+
+.loader-segment {
+  height: 100px;
+}
