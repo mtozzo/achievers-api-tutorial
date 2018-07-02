@@ -43,7 +43,7 @@ class Main extends Component {
     return (
       <div className='anywhereRecognition'>
         <Form>
-          <Recipients />
+          <Recipients accessToken={accessToken} />
           <Reason />
           <Modules modules={modules} />
           <Button color='green' floated='right'>
