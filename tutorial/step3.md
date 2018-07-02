@@ -76,7 +76,7 @@ and update the `render()` function to the following:
 
 If you check your browser you should see something like the following:
 
-![step1a](screenshots/step3a.png)
+![step3a](screenshots/step3a.png)
 
 Clicking on the button doesn't do anything though so let's fix that.
 
@@ -112,7 +112,7 @@ And finally add a `constructor` and a method named `onLoginClick`:
 +    const authParams = {
 +      response_type: 'token',
 +      client_id: clientID,
-+      scope: ['read'],
++      scope: ['read write'],
 +      state: Math.random(),
 +      nonce: 'test',
 +    }

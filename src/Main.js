@@ -45,7 +45,6 @@ class Main extends Component {
         <Form>
           <Recipients />
           <Reason />
-          <Modules />
           <Modules modules={modules} />
           <Button color='green' floated='right'>
             Post

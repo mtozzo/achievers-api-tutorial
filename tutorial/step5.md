@@ -26,12 +26,12 @@ import './Main.css';
 class Main extends Component {
   render() {
     return (
-      <div className="anywhereRecognition">
+      <div className='anywhereRecognition'>
         <Form>
           <Recipients />
           <Reason />
           <Modules />
-          <Button color="green" floated="right">
+          <Button color='green' floated='right'>
             Post
           </Button>
         </Form>

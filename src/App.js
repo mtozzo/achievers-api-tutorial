@@ -4,7 +4,6 @@ import Login from './Login';
 import Main from './Main';
 import cookie from 'react-cookies';
 import 'semantic-ui-css/semantic.min.css';
-import { Header, Button, Segment } from 'semantic-ui-react'
 
 class App extends Component {
   constructor(props) {

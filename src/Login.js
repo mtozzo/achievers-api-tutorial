@@ -34,7 +34,7 @@ class Login extends Component {
     const authParams = {
       response_type: 'token',
       client_id: clientID,
-      scope: ['read'],
+      scope: 'write read',
       state: Math.random(),
       nonce: 'test',
     }
