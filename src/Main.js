@@ -9,10 +9,34 @@ import './Main.css';
 class Main extends Component {
   constructor(props) {
     super(props);
+    this.handleReasonChange = this.handleReasonChange.bind(this);
+    this.handleModuleCriterionChange = this.handleModuleCriterionChange.bind(this);
+    this.handleRecipientsChange = this.handleRecipientsChange.bind(this);
+
     this.state = {
       isLoadingModules: true,
     }
   }
+
+  handleRecipientsChange(recipients) {
+    this.setState({recipients: recipients.value});
+  }
+
+  handleModuleCriterionChange(criterionId) {
+    this.setState({criterionId: criterionId});
+  }
+
+  handleReasonChange(reason) {
+    this.setState({reason: reason});
+  }
+
+  handleSubmit = (event) => {
+    const { accessToken } = this.props;
+    const { reason, recipients, criterionId } = this.state;
+    console.log('reason: ' + reason + ' recipients: ' + recipients + ' criterionId: ' + criterionId);
+    event.preventDefault();
+  }
+
   componentDidMount() {
     const { accessToken } = this.props;
     fetchModules(accessToken)
@@ -42,10 +66,10 @@ class Main extends Component {
 
     return (
       <div className='anywhereRecognition'>
-        <Form>
-          <Recipients accessToken={accessToken} />
-          <Reason />
-          <Modules modules={modules} />
+        <Form onSubmit={this.handleSubmit}>
+          <Recipients accessToken={accessToken} onRecipientsChange={this.handleRecipientsChange} />
+          <Reason onReasonChange={this.handleReasonChange} />
+          <Modules modules={modules} onModuleCriterionChange={this.handleModuleCriterionChange} />
           <Button color='green' floated='right'>
             Post
           </Button>

@@ -5,6 +5,12 @@ import { doUserSearch } from './apiMethods';
 import './Recipients.css';
 
 class Recipients extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleRecipientsChange = this.handleRecipientsChange.bind(this);
+  }
+
   componentWillMount() {
     this.setState({
       isFetching: false,
@@ -18,7 +24,9 @@ class Recipients extends Component {
 
   handleRecipientsChange(e, { value }) {
     this.setState({ value });
+    this.props.onRecipientsChange({ value });  
   }
+
   handleSearchChange = (e, { searchQuery }) => {
     const { accessToken } = this.props
 
@@ -39,6 +47,7 @@ class Recipients extends Component {
         this.setState({ error: err, isLoading: false });
       });
   }
+
   render() {
     const renderLabel = label => ({
       content: label.text,

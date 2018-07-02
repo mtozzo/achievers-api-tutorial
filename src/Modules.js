@@ -5,6 +5,7 @@ import './Modules.css';
 class Modules extends Component {
   constructor(props) {
     super(props);
+    this.handleCriterionClick = this.handleCriterionClick.bind(this);
     this.state = {
       activeModuleIndex: -1,
       activeCriterionIndex: -1,
@@ -15,6 +16,7 @@ class Modules extends Component {
     const { index, criteriaid } = titleProps
     const { activeCriterionIndex } = this.state
     const newIndex = activeCriterionIndex === index ? -1 : index
+    this.props.onModuleCriterionChange(criteriaid);
     this.setState({ activeCriterionIndex: newIndex })
   }
 
