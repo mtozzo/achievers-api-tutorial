@@ -17,7 +17,6 @@ class App extends Component {
 
   render() {
     const { accessToken } = this.state;
-    console.log(this.state);
 
     if (accessToken) {
       return <Main accessToken={accessToken} />;

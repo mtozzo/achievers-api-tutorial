@@ -183,7 +183,7 @@ and finally update the render method to use this new information:
 +    if (isDoneSuccessfullySendingRecognition) {
 +      return (
 +        <div className='anywhereRecognition'>
-+        <Message inverted positive>
++        <Message positive>
 +          <Message.Header>Recognition sent!</Message.Header>
 +          <p>Your recognition was sent succesfully! You can view it by visiting:</p>
 +          <a href={newsfeedEventURL} target='_blank'>{newsfeedEventURL}</a>
