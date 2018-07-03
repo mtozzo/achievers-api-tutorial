@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Button, Form, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Button, Form, Segment, Dimmer, Loader, Message } from 'semantic-ui-react'
 import Recipients from './Recipients'
 import Reason from './Reason'
 import Modules from './Modules'
-import { fetchModules } from './apiMethods';
+import _ from 'lodash';
+import { fetchModules, postRecognition } from './apiMethods';
 import './Main.css';
 
 class Main extends Component {
@@ -15,6 +16,8 @@ class Main extends Component {
 
     this.state = {
       isLoadingModules: true,
+      isDoneSuccessfullySendingRecognition: false,
+      errors: [],
     }
   }
 
@@ -33,7 +36,19 @@ class Main extends Component {
   handleSubmit = (event) => {
     const { accessToken } = this.props;
     const { reason, recipients, criterionId } = this.state;
-    console.log('reason: ' + reason + ' recipients: ' + recipients + ' criterionId: ' + criterionId);
+
+    if (!accessToken || !recipients || !reason || !criterionId) {
+      const errors = ['Please ensure you\'ve selected one or more recipients, entered a reason and selected a criterion for your recognition.'];
+      this.setState({errors: errors});
+    } else {
+      postRecognition(accessToken, recipients, reason, criterionId)
+        .then(res => {
+          this.setState({ errors: [], newsfeedEventURL: res.newsfeedEventURL, isDoneSuccessfullySendingRecognition: true });
+        })
+        .catch(err => {
+          this.setState({ error: err });
+        });
+    }
     event.preventDefault();
   }
 
@@ -50,7 +65,19 @@ class Main extends Component {
 
   render() {
     const { accessToken } = this.props;
-    const { isLoadingModules, modules } = this.state;
+    const { isLoadingModules, isDoneSuccessfullySendingRecognition, newsfeedEventURL, modules, errors } = this.state;
+
+    if (isDoneSuccessfullySendingRecognition) {
+      return (
+        <div className='anywhereRecognition'>
+        <Message inverted positive>
+          <Message.Header>Recognition sent!</Message.Header>
+          <p>Your recognition was sent succesfully! You can view it by visiting:</p>
+          <a href={newsfeedEventURL} target='_blank'>{newsfeedEventURL}</a>
+        </Message>
+        </div>
+      )
+    }
 
     if (isLoadingModules) {
       return (
@@ -66,6 +93,7 @@ class Main extends Component {
 
     return (
       <div className='anywhereRecognition'>
+        <Message error header='Problem perfoming recognition' hidden={_.isEmpty(errors)} list={errors} />
         <Form onSubmit={this.handleSubmit}>
           <Recipients accessToken={accessToken} onRecipientsChange={this.handleRecipientsChange} />
           <Reason onReasonChange={this.handleReasonChange} />
