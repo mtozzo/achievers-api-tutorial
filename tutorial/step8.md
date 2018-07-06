@@ -1,8 +1,8 @@
 # React Powered Achievers API App tutorial
 
-This step will focus on bringing all of the user input together in on our App. 
+This step will focus on bringing all of the user input together in the App. 
 
-As noted by [the React documentation](https://reactjs.org/docs/forms.html), forms work a little differently in React. First we try adding a handler for the `Form` component references in our `Main` component:
+As noted by [the React documentation](https://reactjs.org/docs/forms.html), forms work differently in React. First, try adding a handler for the `Form` component references in your `Main` component, along with the `handleSubmit()` method declaration:
 
 ###### src/Main.js
 
@@ -11,7 +11,6 @@ As noted by [the React documentation](https://reactjs.org/docs/forms.html), form
 +        <Form onSubmit={this.handleSubmit}>
 ```
 
-along with the `handleSubmit()` method declaration:
 
 ```
   handleSubmit = (event) => {
@@ -20,11 +19,11 @@ along with the `handleSubmit()` method declaration:
   }
 ```
 
-You'll notice that if you add a `console.log(this.state);` statement to the `handleSubmit()` method you won't actually see any data that you could actually create an API request to the Achievers platform with. The official React documention explains how to get around this in their article that explains the concept of [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html) . We'll do this first with our `Reason` component as it's fairly simple and then we'll apply the same idea to the `Module` and `Recipient` components.
+You'll notice that if you add a `console.log(this.state);` statement to the `handleSubmit()` method, you won't see any data that you could create an API request to the Achievers platform with. The official React documention explains how to get around this in their article, [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html) . Start with your `Reason` component as it's simple and then apply the same idea to the `Module` and `Recipient` components.
 
 ###### src/Reason.js
 
-First, we update the `render()` method of `Reason` component to have an `onChange` event handler:
+First, update the `render()` method of the `Reason` component to have an `onChange` event handler:
 
 ```diff
    render() {
@@ -36,7 +35,7 @@ First, we update the `render()` method of `Reason` component to have an `onChang
        </div>
 ```
 
-next we define the handler but use `this.props` instead of `this.state`.
+Next define the handler, but use `this.props` instead of `this.state`.
 
 ```
   constructor(props) {
@@ -49,7 +48,7 @@ next we define the handler but use `this.props` instead of `this.state`.
   }
 ```
 
-Back in the Main component we need to make accompanying changes.
+In the `Main` component you need to make accompanying changes:
 
 ###### src/Main.js
 
@@ -63,7 +62,7 @@ First, update the `render()` method so it has an event handler:
 +          <Reason onReasonChange={this.handleReasonChange} />
 ```
 
-define the method `handleReasonChange()` method:
+Define the `handleReasonChange()` method:
 
 ```
   handleReasonChange(reason) {
@@ -71,7 +70,7 @@ define the method `handleReasonChange()` method:
   }
 ```
 
-and finally bind it in the constructor:
+Finally. bind it in the constructor:
 
 ```diff
   constructor(props) {
@@ -95,9 +94,9 @@ Now, you can do something like the following in the `handleSubmit()` method:
   }
 ```  
 
-Now if you type in a reason in to the text area and click the "Post" button, the reason you typed will show up in the browser console. 
+If you type in a reason in the text area and click the "Post" button, the reason will appear in the browser console. 
 
-Next, we apply the same idea to our two other components. Set up the change event handlers in the `Main` component for the `Modules` and `Recipients` components in the same way we did for the `Reason` component.
+Apply the same idea to the other two components. Set up the change event handlers in the `Main` component for the `Modules` and `Recipients` components in the same way you did for the `Reason` component.
 
 ###### src/Main.js
 
@@ -113,7 +112,7 @@ First, set the handlers on the components:
 ```
 
 
-define the handler methods:
+Define the handler methods:
 
 ```
   handleRecipientsChange(recipients) {
@@ -125,7 +124,7 @@ define the handler methods:
   }
 ```
 
-and finally bind the methods in the contructor:
+Bind the methods in the contructor:
 
 ```diff
   constructor(props) {
@@ -140,11 +139,11 @@ and finally bind the methods in the contructor:
   }
 ```
 
-Now we'll update the `Recipient` component.
+Update the `Recipient` component.
 
 ###### src/Recipient.js
 
-We'll tap into the existing change handling function to set `this.prop`:
+Tap into the existing change handling function to set `this.prop`:
 
 ```diff
   handleRecipientsChange(e, { value }) {
@@ -163,11 +162,11 @@ Then add a constructor to bind the method:
 
 ```
 
-Next we'll update the `Module` component.
+Next, update the `Module` component.
 
 ###### src/Module.js
 
-Again, we set `this.prop`:
+Set `this.prop`:
 
 ```diff
   handleCriterionClick = (e, titleProps) => {
@@ -179,7 +178,7 @@ Again, we set `this.prop`:
   }
 ```
 
-and add the binding in the constructor:
+Add the binding in the constructor:
 
 ```diff
   constructor(props) {
@@ -191,7 +190,7 @@ and add the binding in the constructor:
 ```
 
 
-Now if we go back to our Main component we can reference all three of these things they'll  be available:
+Now if you go back to the `Main` component you can reference all three of these:
 
 ```diff
   handleSubmit = (event) => {
@@ -203,6 +202,6 @@ Now if we go back to our Main component we can reference all three of these thin
   }
 ```
 
-Now that we have have access to everything we need We're finally in the home stretch!
+Now that you have have access to everything you need, you're nearly done.
 
-On to step 9.
+Continue to step 9.
