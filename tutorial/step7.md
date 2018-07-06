@@ -1,8 +1,8 @@
 # React Powered Achievers API App tutorial
 
-This step will focus on getting the user search working with the Achievers API user endpoint. We're going to use the [Accoridion](https://react.semantic-ui.com/modules/dropdown) component from the Semantic UI React library for rendering the user search.
+This step will focus on getting the user search working with the Achievers API user endpoint. You will use the [Accoridion](https://react.semantic-ui.com/modules/dropdown) component from the Semantic UI React library for rendering the user search.
 
-First, we'll create a new method that uses the `fetch()` method we used earlier that access the Achievers user endpoint in our `apiMethods.js` file.
+First, you'll create a new method that uses the `fetch()` method you used earlier that accesses the Achievers user endpoint in our `apiMethods.js` file.
 
 ###### src/apiMethods.js
 
@@ -33,7 +33,7 @@ function doUserSearch(accessToken, q = '') {
 }
 ```
 
-and update the export section as follows:
+And update the export section as follows:
 
 ```diff
 export {
@@ -42,7 +42,7 @@ export {
 };
 ```
 
-Back in our `Main` component we're going to need to pass along the `accessToken` so the `Recipients` component can use it as an argument to `doUserSearch()` so let's update the `render()` method of `Main.js` now as well.
+Back in the `Main` component you will need to pass along the `accessToken` so the `Recipients` component can use it as an argument to `doUserSearch()`. 
 
 ###### src/Main.js
 
@@ -55,7 +55,7 @@ Back in our `Main` component we're going to need to pass along the `accessToken`
           <Reason />
 ```
 
-Now we'll update the `Recipients` component itself. We'll swap out the `TextArea` component we added as a placeholder before with a `Dropdown` component. As we're going to need to manipulate arrays a lot we're going to utilize the [Lodash](https://lodash.com/) library. The react starter app already utilizes it so all we need to do is import it.
+Now update the `Recipients` component itself. Swap out the `TextArea` component you added as a placeholder with a `Dropdown` component. Import the [Lodash](https://lodash.com/) library, as you will be maniuplating arrays. 
 
 
 ###### src/Recipients.js
@@ -69,7 +69,7 @@ At the top of the file make the following changes to the `import` statements:
 +import { doUserSearch } from './apiMethods'; 
 ```
 
-Update the `render()` method like so:
+Update the `render()` method as follows:
 
 ```diff
    render() {
@@ -103,7 +103,7 @@ Update the `render()` method like so:
    }
 ```
 
-and add a `componentWillMount()` method that will set the initial state in a sensible way:
+Add a `componentWillMount()` method that will set the initial state:
 
 ```
   componentWillMount() {
@@ -118,7 +118,7 @@ and add a `componentWillMount()` method that will set the initial state in a sen
   }
 ```
 
-along with the two methods referenced by the `Dropdown` component, `handleRecipientsChange()` and `handleSearchChange`:
+Add the two methods, `handleRecipientsChange()` and `handleSearchChange`, referenced that will be referenced by the `Dropdown` component:
 
 ```
   handleRecipientsChange(e, { value }) {
@@ -147,7 +147,7 @@ along with the two methods referenced by the `Dropdown` component, `handleRecipi
   }
 ```  
 
-Finally, add some css to `Recipients.css` so the dropdown looks the way we want it to:
+Finally, add some css to `Recipients.css` so the dropdown looks the way you want it to:
 
 ###### src/Recipients.css
 
@@ -162,4 +162,4 @@ With all of this added you should have a dropdown that looks something like this
 
 ![step7a](screenshots/step7a.png)
 
-With this done, we can move on to step 8.
+Continue to step 8.
