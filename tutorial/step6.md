@@ -1,10 +1,10 @@
 # React Powered Achievers API App tutorial
 
-We're in a position now where we can make a request to the `/api/v5/recognitions` endpoint and display the results in the `Modules` component. We're going to use the [fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) provided by browsers. Our starter app provides a polyfil `fetch()` so we don't have to worry about the browser support as [mentioned in the documentation for the starter App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#fetching-data-with-ajax-requests) so we'll be using that.
+You can now make a request to the `/api/v5/recognitions` endpoint and display the results in the `Modules` component, using the [fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) provided by browsers. The starter app provides a polyfil `fetch()` so you do not have to worry about the browser support as [mentioned in the documentation for the starter App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#fetching-data-with-ajax-requests).
 
-In order to properly display the recognition interface we're going to fetch the list of modules from an API response. We're going to add a loading screen while we do that so let's get that going first. We'll manage this with a new state variable named `isLoadingModules` which we'll work in to `Main.js`.
+To properly display the recognition interface you are going to retrieve the list of modules from an API response. While the list is being retrieved, a loading screen will be displayed, so you can work on that first.  You will manage this screen with a new state variable named `isLoadingModules` which you will work in to `Main.js`.
 
-Add a constructor that sets the `isLoadingModules` state to `Main.js`:
+Add a constructor to `Main.js` that sets the `isLoadingModules` state:
 
 ###### src/Main.js
 ```diff
@@ -16,7 +16,7 @@ Add a constructor that sets the `isLoadingModules` state to `Main.js`:
 +  }
 ```  
 
-And then update the `render()` method to examine this variable like so:
+And then update the `render()` method to examine this variable:
 
 ```diff
   render() {
@@ -38,7 +38,7 @@ And then update the `render()` method to examine this variable like so:
       <div className='anywhereRecognition'>
 ```
 
-Also update `Main.css` with the new style:
+Update `Main.css` with the new style:
 
 ```diff
 +.loader-segment {
@@ -50,9 +50,9 @@ Now your App should display a spinning loader:
 
 ![step6a](screenshots/step6a.png)
 
-Now we're going to add in the function that will fetch the data from the API and and we'll call it from a `componentDidMount()` that we're going to add to `Main.js`.
+Now you're going to add the function that will fetch the data from the API and and call it from a `componentDidMount()` that you will add to `Main.js`.
 
-First, and the following file to the project: 
+First, add the following file to the project: 
 
 
 ###### src/apiMethods.js
@@ -86,7 +86,7 @@ export {
 };
 ```
 
-In `Main.js` add the necessary `import` and the following `componentDidMount() method:
+In `Main.js` add the following `import` statement and `componentDidMount()` method:
 
 ###### src/Main.js
 
@@ -107,7 +107,7 @@ In `Main.js` add the necessary `import` and the following `componentDidMount() m
 +  }
 ```
 
-Notice that this method sets `isLoadingModules: false` when the promise has been fulfilled. Now we're going to need to pass the modules into the `Modules` component so make the following changes to the `render()` method of `Main.js`.
+Notice that this method sets `isLoadingModules: false` when the modules have been retrieved. Now you need to pass the modules into the `Modules` component by making the following changes to the `render()` method of `Main.js`.
 
 ```diff
 render() {
@@ -126,11 +126,11 @@ render() {
           <Button color='green' floated='right'>
 ```
 
-Next, we'll update the `Module` component to use the new data in `modules` prop and introduce an [Accoridion](https://react.semantic-ui.com/modules/accordion) component from the Semantic UI React library for displaying the modules. We're also going to want to set up two functions -  one for looping over and rendering all of the modules and another that dives in to the modules and loops over and renders all of the criteria. Make the following changes to `Modules.js`.
+Next, you'll update the `Module` component to use the new data in `modules` prop and introduce an [Accoridion](https://react.semantic-ui.com/modules/accordion) component from the Semantic UI React library for displaying the modules. You will also set up two functions -  one for looping over and rendering all of the modules, and another that loops over and renders all of the recognition values for each module. Make the following changes to `Modules.js`:
 
 ###### src/Modules.js
 
-Updates the imports like so:
+Update the imports as follows:
 
 ```diff
 -import { Header } from 'semantic-ui-react'
@@ -154,7 +154,7 @@ Update the render method as follows:
     )
 ```
 
-Then add the `RenderModule()` and `RenderCriteria()` methods:
+Add the `RenderModule()` and `RenderCriteria()` methods:
 
 ```
   RenderModule(module, i) {
@@ -202,7 +202,7 @@ Then add the `RenderModule()` and `RenderCriteria()` methods:
   }
 ```  
 
-along with code for handling the clicks:
+Along with code for handling the clicks:
 
 ```
   handleCriterionClick = (e, titleProps) => {
@@ -221,7 +221,7 @@ along with code for handling the clicks:
   }
 ```
 
-and add a constructor to set appropriate defaults:
+Add a constructor to set appropriate defaults:
 
 ```
   constructor(props) {
@@ -233,7 +233,7 @@ and add a constructor to set appropriate defaults:
   } 
 ```
 
-Finally, update `Modules.css` file with the following additions:
+Add the following to the `Modules.css` file:
 
 ###### src/Modules.css
 
@@ -267,7 +267,7 @@ If you look at your app in a browser now it might look something like this:
 
 ![step6b](screenshots/step6b.png)
 
-You'll notice that you can click on the modules and they'll expland and you can select a criteria for the recognition as well. You may notice an "Email Recognition" module that isn't normally usable which, at the time of writing this, is returned by the `OPTIONS` request. Also, dealing with point based recognition modules can get fairly complex so in order to keep this tutorial fairly simple we're going to omit them. That said, we're going to make a quick change to the `fetchModules()` in `apiMethods.js` so we're only looking at free modules and modules without the word "Email" in the name.
+You can click on the modules to expland them and display the list of recognition values. You may see an "Email Recognition" module that isn't normally usable but which, at the time of writing this, is returned by the `OPTIONS` request. Dealing with points-based recognition modules can be complex and is beyond the scope of this tutorial. To exclude points-based and Email modules, you will make a change to the `fetchModules()` method in `apiMethods.js`.
 
 ```diff
 -      throw err;
@@ -280,9 +280,9 @@ You'll notice that you can click on the modules and they'll expland and you can 
 }
 ```
 
-After this change, your point based modules and the "Email Recognition" modules will disappear. 
 
-With the modules and criteria rendering we can now focus our attention on updating the `Recipients` component so it can fetch users from the Achievers API.
 
-Now on to step 7.
+With the modules and recognition values now rendering, you can focus on updating the `Recipients` component so it can fetch users from the Achievers API.
+
+Continue to step 7.
 
