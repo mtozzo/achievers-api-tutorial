@@ -1,8 +1,8 @@
 # React Powered Achievers API App tutorial
 
-Now that we have access to all of the data from our components we can use the data to do a request to the Achievers API that will create a recognition in the Achievers platform.
+Now that you have access to all of the data from the components, you can use the data to make a request to the Achievers API that will create a recognition in the Achievers platform.
 
-Let's create a method in `apiMethods.js` that will do the necessary `POST` reqeust.
+Let's create a method in `apiMethods.js` that will make the `POST` request.
 
 ###### src/apiMethods.js
 
@@ -13,7 +13,7 @@ import buildUrl from 'build-url';
 +import queryString from 'query-string';
 ```
 
-Add the definition for the `postRecognition()`:
+Add the definition for the `postRecognition()` method:
 
 ```
 function postRecognition(accessToken, nominees, recognitionText, criterionId) {
@@ -46,7 +46,7 @@ function postRecognition(accessToken, nominees, recognitionText, criterionId) {
 }
 ```
 
-and finally the necessary `export`
+And finally add the `export`:
 
 ```diff
 export {
@@ -56,11 +56,11 @@ export {
 };
 ```
 
-Now we can go back to our `Main` component and add in the finishing touches.
+Return to the `Main` component and add the finishing touches.
 
 ###### src/Main.js
 
-At the top, let's add some new `import` statements. The `Message` and Lodash imports are for doing some basic validation before we attempt to make a request to the Achievers API:
+At the top, add the following `import` statements. The `Message` and Lodash imports are for basic validation before making a request to the Achievers API:
 
 ```diff
 -import { Button, Form, Segment, Dimmer, Loader } from 'semantic-ui-react'
@@ -72,7 +72,7 @@ At the top, let's add some new `import` statements. The `Message` and Lodash imp
 +import { fetchModules, postRecognition } from './apiMethods';
 ```
 
-Update the `handleSubmit()` method that gets called when a user clicks the "Post" button with some basic error checking and a call to the `postRecognition()` method:
+Update the `handleSubmit()` method that is called when a user clicks the "Post" button to include some basic error checking and a call to the `postRecognition()` method:
 
 ```diff
    handleSubmit = (event) => {
@@ -91,7 +91,7 @@ Update the `handleSubmit()` method that gets called when a user clicks the "Post
    }
 ```
 
-and make some adjustments so we can display an error message:
+Make some adjustments to display an error message:
 
 ```diff
    render() {
@@ -110,7 +110,7 @@ and make some adjustments so we can display an error message:
           <Reason onReasonChange={this.handleReasonChange} />
 ```
 
-and finally, update the contructor so it sets a detault state for `errors`:
+Finally, update the contructor so it sets a default state for `errors`:
 
 ```diff
   constructor(props) {
@@ -126,15 +126,15 @@ and finally, update the contructor so it sets a detault state for `errors`:
   }
 ```
 
-With all of this in place you should see the following if you try to submit an incomplete form.
+With all of this in place, you should see the following if you try to submit an incomplete form:
 
 ![step9a](screenshots/step9a.png)
 
-For the case where a completed form is submitted, we want to display a success message along with the ability to view the recognition within the Achievers Platform. In order to achieve this we need to add a few things to the `Main` component.
+When a completed form is submitted, you want to display a success message along with the ability to view the recognition in the Achievers Platform. To achieve this, you need to add a few things to the `Main` component.
 
 ###### src/Main.js
 
-First set a new state variable in the constructor:
+First, set a new state variable in the constructor:
 
 ```diff
   constructor(props) {
@@ -172,7 +172,7 @@ First set a new state variable in the constructor:
   }
 ```
 
-and finally update the render method to use this new information:
+Finally update the `render` method to use this new information:
 
 ```diff
    render() {
@@ -197,4 +197,4 @@ Filling in the form properly should now result in something like the following:
 
 ![step9b](screenshots/step9b.png)
 
-Congratulations! You now have a working Achievers API integration that allows you to create recognitions within the Achievers Platform!
+Congratulations! You now have a working Achievers API integration that allows you to post recognitions to the Achievers Platform!
