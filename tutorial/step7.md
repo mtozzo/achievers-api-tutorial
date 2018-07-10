@@ -1,6 +1,6 @@
 # React Powered Achievers API App tutorial
 
-This step will focus on getting the user search working with the Achievers API user endpoint. You will use the [Accoridion](https://react.semantic-ui.com/modules/dropdown) component from the Semantic UI React library for rendering the user search.
+This step will focus on getting the user search working with the Achievers API user endpoint. You will use the [Dropdown](https://react.semantic-ui.com/modules/dropdown) component from the Semantic UI React library for rendering the user search.
 
 First, you'll create a new method that uses the `fetch()` method you used earlier that accesses the Achievers user endpoint in our `apiMethods.js` file.
 

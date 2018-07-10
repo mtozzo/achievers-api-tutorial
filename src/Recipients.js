@@ -64,7 +64,6 @@ class Recipients extends Component {
           selection
           multiple
           search
-          selection
           closeOnChange
           options={options}
           placeholder='Add more people'
