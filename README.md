@@ -6,5 +6,4 @@ Steps to get this running:
 
 1. Install the dependecies with `yarn install`
 2. Copy `env.sample` to `.env` and sensibly set <yoursubdomain> and <yourclientid>
-3. Run `yarn start`
-
+3. Run `HTTPS=true yarn start `
