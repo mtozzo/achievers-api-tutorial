@@ -130,6 +130,6 @@ At this point, clicking on the "Authenticate" button will open a login window, s
 
 `https://localhost:3000/#access_token=bba6732a3861f168775f3a7adc28e775d4bb9fbb&expires_in=1209600&token_type=bearer&scope=read&state=0.5060996102602306`
 
-Save this access token to use for your other requests.
+You will need to save this access token for your other requests.
 
 Continue to step 4.
