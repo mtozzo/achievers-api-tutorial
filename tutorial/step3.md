@@ -1,8 +1,8 @@
 # React Powered Achievers API App tutorial
 
-Now that we've added some packages and a `.env` file added to the project we can start building the log in form.
+Now that you have added packages and a `.env` file, you can start building the login form.
 
-Create two news files in the `src` directory named `Login.js` and `Login.css`. Since the React starter project uses [Webpack](https://webpack.js.org/) we can utilize it's functionality that allows us to express that a JavaScript file depends on a CSS file. To create the relationship between the two files you simply have to `import` the CSS file in your JavaScript file. Add the following to the two files:
+Create two news files in the `src` directory and name them `Login.js` and `Login.css`. Since the React starter project uses [Webpack](https://webpack.js.org/), you can utilize the functionality to express that a JavaScript file depends on a CSS file. To create the relationship between the two files, you have to `import` the CSS file in your JavaScript file. Add the following to the two files:
 
 ###### src/Login.js
 ``` 
@@ -46,9 +46,9 @@ export default Login;
 }
 ```
 
-Then make the following changes to `App.js`:
+Make the following changes to `App.js`:
 
-Near the top of the make the following changes to the `import` statement section.
+Near the top of `App.js` file, make the following changes to the `import` statement section.
 
 ```diff
 -import logo from './logo.svg';
@@ -74,29 +74,27 @@ and update the `render()` function to the following:
   }
 ```
 
-If you check your browser you should see something like the following:
+In your browser, you will now see something like the following:
 
 ![step3a](screenshots/step3a.png)
 
-Clicking on the button doesn't do anything though so let's fix that.
+Right now, clicking on the button will not do anything. The next step is to get the button working. 
 
 # Adding the button click
 
-Make the following changes to `Login.js`
-
-At the top add the following `import` statement.
+At the top of `Login.js` add the following `import` statement:
 ```diff
 +import buildUrl from 'build-url';
 ```
 
-In the previously added `render()` method change the following:
+In the `render()` function, change the following:
 
 ```diff
 -            <Button>
 +            <Button onClick={this.onLoginClick}>
 ```
 
-And finally add a `constructor` and a method named `onLoginClick`:
+Finally, add a `constructor` and a method named `onLoginClick`:
 
 ```diff
 +  constructor(props) {
@@ -128,10 +126,10 @@ And finally add a `constructor` and a method named `onLoginClick`:
 +  }
 ```
 
-At this point there's enough code in place that clicking on the "Authenticate" button will pop up a login dialogue window so go ahead and restart your development server except instead of using `yarn start` you're going to want to use `HTTPS=true yarn start` so you'll have a secure connection over HTTPS instead. Logging in to your Achievers account will result in you getting prompted to authorise your App. After authenticating you'll see that your pop up window will be displaying your "Authenticate" button again but the URL will have additional information in it. It'll look something like the following:
+At this point, clicking on the "Authenticate" button will open a login window, so you can restart your development server. Instead of using `yarn start` you will use `HTTPS=true yarn start` to establish a secure connection over HTTPS. After logging in to your Achievers account, you will be prompted to authorize your App. After authorizing, the URL in your login window will have additional information in it. It will look something like the following:
 
 `https://localhost:3000/#access_token=bba6732a3861f168775f3a7adc28e775d4bb9fbb&expires_in=1209600&token_type=bearer&scope=read&state=0.5060996102602306`
 
-That's the access token we're going to want to save and use for our other requests.
+Save this access token to use for your other requests.
 
-Now on to step 4.
+Continue to step 4.
