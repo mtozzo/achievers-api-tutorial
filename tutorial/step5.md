@@ -2,11 +2,11 @@
 
 I typical recognition interface within the Achievers platform looks something like the following:
 
-![step5a](screenshots/step5a.png)
+![step5aa](screenshots/step5aa.png)
 
 Which can be divided into three areas:
 
-![step5a](screenshots/step5b.png)
+![step5bb](screenshots/step5bb.png)
 
 Area 1 is where the recipient(s) for the recognition are selected and listed. Additional users that should be notified are also managed here. Area 2 is where the recognition reason is provided along with additional content such as an image or external link. Area 3 is where the recognition modules the current user has access to are listed along with the criteria options after the module is selected. We're going to want to create components that mirror these three sections. It also makes sense to have a higher level component that can be used to tie these all together and can be used as an alternate to displaying the `Login` component we already have.
 
