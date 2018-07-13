@@ -1,16 +1,16 @@
 # React Powered Achievers API App tutorial
 
-I typical recognition interface within the Achievers platform looks something like the following:
+A typical recognition interface in the Achievers platform looks like the following:
 
 ![step5aa](screenshots/step5aa.png)
 
-Which can be divided into three areas:
+Which can be divided into three sections:
 
 ![step5bb](screenshots/step5bb.png)
 
-Area 1 is where the recipient(s) for the recognition are selected and listed. Additional users that should be notified are also managed here. Area 2 is where the recognition reason is provided along with additional content such as an image or external link. Area 3 is where the recognition modules the current user has access to are listed along with the criteria options after the module is selected. We're going to want to create components that mirror these three sections. It also makes sense to have a higher level component that can be used to tie these all together and can be used as an alternate to displaying the `Login` component we already have.
+The Who do you want to recognize section, is where the recipient(s) for the recognition are selected and listed. Additional users that should be notified are also managed here. The Give a reason for this recognition section is where the recognition reason is provided, along with additional content such as an image or external link. The Choose a Recognition type is where the recognition modules the current user has access to are listed. Once a module is selected, the recognition values are then displayed.  You will create components that mirror these three sections. It also makes sense to have a higher level component that can be used to tie these all together.
 
-First, let's start with the higher level or "main" component. Create files named `Main.js` and `Main.css` in the `src` directory. 
+First, begin with the higher level or "main" component. In the `src` directory, create files named `Main.js` and `Main.css`. 
 
 Add the following to the two files:
 
@@ -50,7 +50,7 @@ export default Main;
 }
 ```
 
-This will result in compilation errors since the `Recipients`, `Reason` and `Modules` components don't yet exist. Let's rectify that by creating `Recipients.js`,`Recipients.css`, `Reason.js`, `Reason.css`, `Modules.js`, and `Modules.css` all in the `src` directory.
+This will result in compilation errors since the `Recipients`, `Reason` and `Modules` components do not yet exist. Rectify that by creating `Recipients.js`,`Recipients.css`, `Reason.js`, `Reason.css`, `Modules.js`, and `Modules.css` in the `src` directory.
 
 ###### src/Recipients.js
 ``` 
@@ -129,9 +129,9 @@ export default Modules;
 }
 ```
 
-Finally, we're going to want to make an adjustment to `App.js` to load the `Main` component if the `accessToken` is set. We know that we're going to need the `accessToken` so we're going to pass it through as a prop.
+Finally, make an adjustment to `App.js` to load the `Main` component if the `accessToken` is set. Since you are going to need the `accessToken`, pass it through as a prop.
 
-At the top of `App.js` add the following `import` statement.
+At the top of `App.js` add the following `import` statement:
 
 ```diff
 +import queryString from './Main';
@@ -147,10 +147,10 @@ and update the `render()` function to the following:
 +    } 
 ```
 
-After doing all of this you should have something that looks like this:
+After doing all of this, you should have something that looks like this:
 
 ![step5c](screenshots/step5c.png)
 
-Now we can work on actually populating the `Modules` component with data fetched from the API.
+Now we can work on populating the `Modules` component with data fetched from the API.
 
-Now on to step 6.
+Continue to step 6.
