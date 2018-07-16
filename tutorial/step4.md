@@ -1,11 +1,10 @@
 # React Powered Achievers API App tutorial
 
-Now that we're getting back the access token from the API we're going to need to parse it from the URL and save it as a cookie. Once it's saved by our popped up window, we're going to want to close the window and reload the original window.
+You will need to extract the access token from the URL and save it as a cookie. Once you have done this, close the window and reload the original window.
 
-import queryString from 'query-string';
-import cookie from 'react-cookies';
+https://localhost:3000/#access_token=bba6732a3861f168775f3a7adc28e775d4bb9fbb&expires_in=1209600&token_type=bearer&scope=read&state=0.5060996102602306
 
-At the top of `Login.js` add the following `import` statement.
+At the top of `Login.js` add the following `import` statements:
 
 ```diff
 +import queryString from 'query-string';
@@ -44,7 +43,7 @@ Add the following to the constuctor of `App.js`:
    }
 ```
 
-And update the `render` method like so:
+And update the `render` method as follows:
 
 ```diff
    render() {
@@ -57,6 +56,6 @@ And update the `render` method like so:
    }
 ```
 
-Now when your app reloads you should see your access token displayed on the page. With an actual token we can start making some API requests! First though, we're going to take a quick detour and create the compents that will be displayed when we're logged in.
+Now when your app reloads you should see your access token displayed on the page. With an actual token we can start making some API requests. First, take a quick detour to create the components that will be displayed when you're logged in.
 
-Now on to step 5.
+Continue to step 5.
