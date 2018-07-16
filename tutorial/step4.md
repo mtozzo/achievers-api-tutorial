@@ -1,8 +1,6 @@
 # React Powered Achievers API App tutorial
 
-You will need to extract the access token from the URL and save it as a cookie. Once you have done this, close the window and reload the original window.
-
-https://localhost:3000/#access_token=bba6732a3861f168775f3a7adc28e775d4bb9fbb&expires_in=1209600&token_type=bearer&scope=read&state=0.5060996102602306
+When you get back the access token from the API, you then need to parse it from the URL and save it as a cookie. Once it's saved by the pop-up window, you need to close that window and reload the original window.
 
 At the top of `Login.js` add the following `import` statements:
 
