@@ -160,6 +160,6 @@ Finally, add some css to `Recipients.css` so the dropdown looks the way you want
 
 With all of this added you should have a dropdown that looks something like this:
 
-![step7a](screenshots/step7a.png)
+![step7a](screenshots/step7aa.png)
 
 Continue to step 8.

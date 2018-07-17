@@ -265,7 +265,7 @@ Add the following to the `Modules.css` file:
 
 If you look at your app in a browser now it might look something like this:
 
-![step6b](screenshots/step6b.png)
+![step6b](screenshots/step6bb.png)
 
 You can click on the modules to expand them and display the list of recognition values. You may see an "Email Recognition" module that isn't normally usable but which, at the time of writing this, is returned by the `OPTIONS` request. Dealing with points-based recognition modules can be complex and is beyond the scope of this tutorial. To exclude points-based and Email modules, you will make a change to the `fetchModules()` method in `apiMethods.js`.
 

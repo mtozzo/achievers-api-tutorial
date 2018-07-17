@@ -128,7 +128,7 @@ Finally, update the contructor so it sets a default state for `errors`:
 
 With all of this in place, you should see the following if you try to submit an incomplete form:
 
-![step9a](screenshots/step9a.png)
+![step9a](screenshots/step9aa.png)
 
 When a completed form is submitted, you want to display a success message along with the ability to view the recognition in the Achievers Platform. To achieve this, you need to add a few things to the `Main` component.
 
