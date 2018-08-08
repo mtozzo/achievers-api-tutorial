@@ -1,13 +1,13 @@
 # React Powered Achievers API App tutorial
 
-Now that you have added packages and a `.env` file, you can start building the login form.
+Now that you have added packages and an `.env` file, you can start building the login form.
 
-Create two news files in the `src` directory and name them `Login.js` and `Login.css`. Since the React starter project uses [Webpack](https://webpack.js.org/), you can utilize the functionality to express that a JavaScript file depends on a CSS file. To create the relationship between the two files, you have to `import` the CSS file in your JavaScript file. Add the following to the two files:
+Create two news files in the `src` directory and name them `Login.js` and `Login.css`. Since the React starter project uses [Webpack](https://webpack.js.org/), you can express that a JavaScript file depends on a CSS file. To create a relationship between the two files, you have to `import` the CSS file in your JavaScript file. Add the following to the two files:
 
 ###### src/Login.js
 ``` 
 import React, { Component } from 'react';
-import { Header, Button, Segment } from 'semantic-ui-react'
+import { Header, Button, Segment } from 'semantic-ui-react';
 import './Login.css';
 
 class Login extends Component {
@@ -24,7 +24,7 @@ class Login extends Component {
           </div>
         </Segment>
       </div>
-    );
+    )
   }
 }
   
@@ -69,8 +69,8 @@ and update the `render()` function to the following:
 -          To get started, edit <code>src/App.js</code> and save to reload.
 -        </p>
 -      </div>
--    );
-+    return <Login />;
+-    )
++    return <Login />
   }
 ```
 

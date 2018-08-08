@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Dropdown } from 'semantic-ui-react'
+import { Header, Dropdown } from 'semantic-ui-react';
 import _ from 'lodash';
 import { doUserSearch } from './apiMethods'; 
 import './Recipients.css';

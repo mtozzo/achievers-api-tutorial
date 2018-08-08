@@ -1,6 +1,6 @@
 # React Powered Achievers API App tutorial
 
-You can now make a request to the `/api/v5/recognitions` endpoint and display the results in the `Modules` component, using the [fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) provided by browsers. The starter app provides a polyfil `fetch()` so you do not have to worry about the browser support as [mentioned in the documentation for the starter App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#fetching-data-with-ajax-requests).
+You can now make a request to the `/api/v5/recognitions` endpoint and display the results in the `Modules` component using the [fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) provided by all modern web browsers. The starter app provides a polyfill for `fetch()` so you do not have to worry about support from older browsers as [mentioned in the documentation for the starter App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#fetching-data-with-ajax-requests).
 
 To properly display the recognition interface you are going to retrieve the list of modules from an API response. While the list is being retrieved, a loading screen will be displayed, so you can work on that first.  You will manage this screen with a new state variable named `isLoadingModules` which you will work in to `Main.js`.
 
@@ -50,7 +50,7 @@ Now your App should display a spinning loader:
 
 ![step6a](screenshots/step6a.png)
 
-Now you're going to add the function that will fetch the data from the API and and call it from a `componentDidMount()` that you will add to `Main.js`.
+Now you're going to add the function that will fetch the data from the API and and call it from `componentDidMount()` that you will add to `Main.js`.
 
 First, add the following file to the project: 
 
@@ -96,15 +96,15 @@ In `Main.js` add the following `import` statement and `componentDidMount()` meth
 
 ```diff
 +componentDidMount() {
-+    const { accessToken } = this.props;
-+    fetchModules(accessToken)
-+      .then(res => {
-+        this.setState({ modules: res.items, isLoadingModules: false });
-+      })
-+      .catch(err => {
-+        this.setState({ error: err, isLoadingModules: false });
-+      });
-+  }
++  const { accessToken } = this.props;
++  fetchModules(accessToken)
++    .then(res => {
++      this.setState({ modules: res.items, isLoadingModules: false });
++    })
++    .catch(err => {
++      this.setState({ error: err, isLoadingModules: false });
++    });
++}
 ```
 
 Notice that this method sets `isLoadingModules: false` when the modules have been retrieved. Now you need to pass the modules into the `Modules` component by making the following changes to the `render()` method of `Main.js`.
@@ -126,15 +126,15 @@ render() {
           <Button color='green' floated='right'>
 ```
 
-Next, you'll update the `Module` component to use the new data in `modules` prop and introduce an [Accoridion](https://react.semantic-ui.com/modules/accordion) component from the Semantic UI React library for displaying the modules. You will also set up two functions -  one for looping over and rendering all of the modules, and another that loops over and renders all of the recognition values for each module. Make the following changes to `Modules.js`:
+Next, you'll update the `Module` component to use the new data in `modules` prop and introduce an [Accordion](https://react.semantic-ui.com/modules/accordion) component from the Semantic UI React library for displaying the modules. You will also set up two functions -  one for looping over and rendering all of the modules, and another that loops over and renders all of the recognition values for each module. Make the following changes to `Modules.js`:
 
 ###### src/Modules.js
 
 Update the imports as follows:
 
 ```diff
--import { Header } from 'semantic-ui-react'
-+import { Accordion, Icon, Header, Image } from 'semantic-ui-react'
+-import { Header } from 'semantic-ui-react';
++import { Accordion, Icon, Header, Image } from 'semantic-ui-react';
 ```
 
 Update the render method as follows:

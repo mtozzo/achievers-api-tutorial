@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextArea, Header } from 'semantic-ui-react'
+import { TextArea, Header } from 'semantic-ui-react';
 import './Reason.css';
 
 class Reason extends Component {

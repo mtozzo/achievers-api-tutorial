@@ -8,9 +8,9 @@ Before you start, you must download and install the following:
 - NodeJS: https://nodejs.org/en/download/
 - Yarn: https://yarnpkg.com/en/docs/install
 
-This tutorial was written with npm v6.1.0 and Yarn v1.7.0 .
+This tutorial was written with npm v6.1.0 and Yarn v1.7.0.
 
-We're going to start by following the steps listed on the official ReactJS documentaion ( https://reactjs.org/docs/add-react-to-a-new-app.html ) for creating a new React App. Execute the following on the command line:
+We're going to start by following the steps listed on the official [ReactJS documentaion]( https://reactjs.org/docs/add-react-to-a-new-app.html) for creating a new React App. Execute the following on the command line:
 
 ```
 npx create-react-app achievers-api-tutorial

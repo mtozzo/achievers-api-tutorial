@@ -8,7 +8,7 @@ Which can be divided into three sections:
 
 ![step5bb](screenshots/step5bb.png)
 
-The Who do you want to recognize section, is where the recipient(s) for the recognition are selected and listed. Additional users that should be notified are also managed here. The Give a reason for this recognition section is where the recognition reason is provided, along with additional content such as an image or external link. The Choose a Recognition type is where the recognition modules the current user has access to are listed. Once a module is selected, the recognition values are then displayed.  You will create components that mirror these three sections. It also makes sense to have a higher level component that can be used to tie these all together.
+The "Who do you want to recognize" section is where the recipient(s) for the recognition are selected and listed. The "Give a reason for this recognition" section is where the recognition reason is provided, along with additional content such as an image or external link. The "Choose a recognition type" is where the recognition modules the current user has access to are listed. Once a module is selected, the recognition values are then displayed. You will create components that mirror these three sections. It also makes sense to have a higher level component that can be used to tie these all together.
 
 First, begin with the higher level or "main" component. In the `src` directory, create files named `Main.js` and `Main.css`. 
 
@@ -17,10 +17,10 @@ Add the following to the two files:
 ###### src/Main.js
 ``` 
 import React, { Component } from 'react';
-import { Button, Form } from 'semantic-ui-react'
-import Recipients from './Recipients'
-import Reason from './Reason'
-import Modules from './Modules'
+import { Button, Form } from 'semantic-ui-react';
+import Recipients from './Recipients';
+import Reason from './Reason';
+import Modules from './Modules';
 import './Main.css';
 
 class Main extends Component {
@@ -55,7 +55,7 @@ This will result in compilation errors since the `Recipients`, `Reason` and `Mod
 ###### src/Recipients.js
 ``` 
 import React, { Component } from 'react';
-import { Header, TextArea } from 'semantic-ui-react'
+import { Header, TextArea } from 'semantic-ui-react';
 import './Recipients.css';
 
 class Recipients extends Component {
@@ -81,7 +81,7 @@ export default Recipients;
 ###### src/Reason.js
 ``` 
 import React, { Component } from 'react';
-import { TextArea, Header } from 'semantic-ui-react'
+import { TextArea, Header } from 'semantic-ui-react';
 import './Reason.css';
 
 class Reason extends Component {
@@ -108,7 +108,7 @@ export default Reason;
 ###### src/Modules.js
 ``` 
 import React, { Component } from 'react';
-import { Accordion} from 'semantic-ui-react'
+import { Accordion} from 'semantic-ui-react';
 import './Modules.css';
 
 class Modules extends Component {

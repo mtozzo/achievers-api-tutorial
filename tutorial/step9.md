@@ -1,6 +1,6 @@
 # React Powered Achievers API App tutorial
 
-Now that you have access to all of the data from the components, you can use the data to make a request to the Achievers API that will create a recognition in the Achievers platform.
+Now that you have access to all of the data from the components, you can now make a request to the Achievers API to create a recognition.
 
 Let's create a method in `apiMethods.js` that will make the `POST` request.
 
@@ -9,7 +9,7 @@ Let's create a method in `apiMethods.js` that will make the `POST` request.
 Add a new `import` statement at the top of the file:
 
 ```diff
-import buildUrl from 'build-url';
+ import buildUrl from 'build-url';
 +import queryString from 'query-string';
 ```
 
@@ -52,7 +52,7 @@ And finally add the `export`:
 export {
   fetchModules,
   doUserSearch,
-+  postRecognitions,
++ postRecognitions,
 };
 ```
 
@@ -63,11 +63,11 @@ Return to the `Main` component and add the finishing touches.
 At the top, add the following `import` statements. The `Message` and Lodash imports are for basic validation before making a request to the Achievers API:
 
 ```diff
--import { Button, Form, Segment, Dimmer, Loader } from 'semantic-ui-react'
-+import { Button, Form, Segment, Dimmer, Loader, Message } from 'semantic-ui-react'
- import Recipients from './Recipients'
- import Reason from './Reason'
- import Modules from './Modules'
+-import { Button, Form, Segment, Dimmer, Loader } from 'semantic-ui-react';
++import { Button, Form, Segment, Dimmer, Loader, Message } from 'semantic-ui-react';
+ import Recipients from './Recipients';
+ import Reason from './Reason';
+ import Modules from './Modules';
 +import _ from 'lodash';
 +import { fetchModules, postRecognition } from './apiMethods';
 ```
@@ -104,7 +104,7 @@ Make some adjustments to display an error message:
 ...snip...
     return (
       <div className='anywhereRecognition'>
-+        <Message error header='Problem perfoming recognition' hidden={_.isEmpty(errors)} list={errors} />
++       <Message error header='Problem perfoming recognition' hidden={_.isEmpty(errors)} list={errors} />
         <Form onSubmit={this.handleSubmit}>
           <Recipients accessToken={accessToken} onRecipientsChange={this.handleRecipientsChange} />
           <Reason onReasonChange={this.handleReasonChange} />
@@ -121,7 +121,7 @@ Finally, update the contructor so it sets a default state for `errors`:
 
     this.state = {
       isLoadingModules: true,
-+      errors: [],
++     errors: [],
     }
   }
 ```
@@ -145,7 +145,7 @@ First, set a new state variable in the constructor:
 
     this.state = {
       isLoadingModules: true,
-+      isDoneSuccessfullySendingRecognition: false,
++     isDoneSuccessfullySendingRecognition: false,
       errors: [],
     }
 ```
@@ -159,7 +159,7 @@ First, set a new state variable in the constructor:
       const errors = ['Please ensure you\'ve selected one or more recipients, entered a reason and selected a criterion for your recognition.'];
       this.setState({errors: errors});
     } else {
--        // will fill in soon      
+-      // will fill in soon      
 +      postRecognition(accessToken, recipients, reason, criterionId)
 +        .then(res => {
 +          this.setState({ errors: [], newsfeedEventURL: res.newsfeedEventURL , isDoneSuccessfullySendingRecognition: true });

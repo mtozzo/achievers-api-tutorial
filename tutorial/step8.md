@@ -19,7 +19,7 @@ As noted by [the React documentation](https://reactjs.org/docs/forms.html), form
   }
 ```
 
-You'll notice that if you add a `console.log(this.state);` statement to the `handleSubmit()` method, you won't see any data that you could create an API request to the Achievers platform with. The official React documention explains how to get around this in their article, [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html) . Start with your `Reason` component as it's simple and then apply the same idea to the `Module` and `Recipient` components.
+You'll notice that if you add a `console.log(this.state);` statement to the `handleSubmit()` method, you won't see any data that you could use to create an API request to the Achievers platform. The official React documention explains how to get around this in their article, [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html). Start with your `Reason` component as it's simple and then apply the same idea to the `Module` and `Recipient` components.
 
 ###### src/Reason.js
 
@@ -148,7 +148,7 @@ Tap into the existing change handling function to set `this.prop`:
 ```diff
   handleRecipientsChange(e, { value }) {
     this.setState({ value });
-+    this.props.onRecipientsChange({ value });  
++   this.props.onRecipientsChange({ value });  
   }
 ```
 
@@ -173,7 +173,7 @@ Set `this.prop`:
     const { index, criteriaid } = titleProps
     const { activeCriterionIndex } = this.state
     const newIndex = activeCriterionIndex === index ? -1 : index
-+    this.props.onModuleCriterionChange(criteriaid);
++   this.props.onModuleCriterionChange(criteriaid);
     this.setState({ activeCriterionIndex: newIndex })
   }
 ```
@@ -183,7 +183,7 @@ Add the binding in the constructor:
 ```diff
   constructor(props) {
     super(props);
-+    this.handleCriterionClick = this.handleCriterionClick.bind(this);
++   this.handleCriterionClick = this.handleCriterionClick.bind(this);
     this.state = {
       activeModuleIndex: -1,
       activeCriterionIndex: -1,
@@ -195,8 +195,8 @@ Now if you go back to the `Main` component you can reference all three of these:
 ```diff
   handleSubmit = (event) => {
     const { accessToken } = this.props;
-+    const { reason, recipients, criterionId } = this.state;
-+    console.log('reason: ' + reason + ' recipients: ' + recipients + ' criterionId: ' + criterionId);
++   const { reason, recipients, criterionId } = this.state;
++   console.log('reason: ' + reason + ' recipients: ' + recipients + ' criterionId: ' + criterionId);
 
     event.preventDefault();
   }

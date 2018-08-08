@@ -9,6 +9,8 @@ At the top of `Login.js` add the following `import` statements:
 +import cookie from 'react-cookies';
 ```
 
+Add the following to the constructor:
+
 ```diff
    constructor(props) {
      super(props);

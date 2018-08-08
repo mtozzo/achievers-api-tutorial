@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Accordion, Icon, Header, Image } from 'semantic-ui-react'
+import { Accordion, Icon, Header, Image } from 'semantic-ui-react';
 import './Modules.css';
 
 class Modules extends Component {

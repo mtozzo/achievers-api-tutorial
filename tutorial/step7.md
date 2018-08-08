@@ -118,7 +118,7 @@ Add a `componentWillMount()` method that will set the initial state:
   }
 ```
 
-Add the two methods, `handleRecipientsChange()` and `handleSearchChange`, referenced that will be referenced by the `Dropdown` component:
+Add the two methods `handleRecipientsChange()` and `handleSearchChange` that are referenced by the `Dropdown` component:
 
 ```
   handleRecipientsChange(e, { value }) {

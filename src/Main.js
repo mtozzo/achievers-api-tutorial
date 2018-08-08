@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Form, Segment, Dimmer, Loader, Message } from 'semantic-ui-react'
-import Recipients from './Recipients'
-import Reason from './Reason'
-import Modules from './Modules'
+import { Button, Form, Segment, Dimmer, Loader, Message } from 'semantic-ui-react';
+import Recipients from './Recipients';
+import Reason from './Reason';
+import Modules from './Modules';
 import _ from 'lodash';
 import { fetchModules, postRecognition } from './apiMethods';
 import './Main.css';
